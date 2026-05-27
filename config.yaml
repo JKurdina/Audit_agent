@@ -1,0 +1,24 @@
+# Конфигурация моделей для Audit Hypothesis Agent
+#
+# Логика выбора пути:
+#   1. Если local_path существует на диске — используется локальная копия
+#   2. Иначе — модель автоматически скачивается с HuggingFace Hub
+#
+# Чтобы принудительно скачать с Hub (игнорируя локальную копию):
+#   установите force_hub: true
+
+models:
+  llm:
+    local_path: "models/Qwen_Qwen2.5-14B-Instruct"
+    hub_id: "Qwen/Qwen2.5-14B-Instruct"
+    force_hub: false
+
+  embedder:
+    local_path: "models/BAAI:bge-m3"
+    hub_id: "BAAI/bge-m3"
+    force_hub: false
+
+  reranker:
+    local_path: "models/bge-reranker-v2-m3"
+    hub_id: "BAAI/bge-reranker-v2-m3"
+    force_hub: false
