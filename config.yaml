@@ -14,8 +14,8 @@
 
 models:
   llm:
-    local_path: "models/Qwen_Qwen2.5-14B-Instruct"
-    hub_id: "Qwen/Qwen2.5-14B-Instruct"
+    local_path: "models/Qwen_Qwen2.5-7B-Instruct"
+    hub_id: "Qwen/Qwen2.5-7B-Instruct"
     force_hub: false
 
   embedder:
