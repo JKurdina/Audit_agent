@@ -1,11 +1,16 @@
 # Конфигурация моделей для Audit Hypothesis Agent
 #
-# Логика выбора пути:
-#   1. Если local_path существует на диске — используется локальная копия
-#   2. Иначе — модель автоматически скачивается с HuggingFace Hub
+# Логика resolve_model_path():
+#   1. Если папка local_path существует → используется локальная копия (быстро)
+#   2. Если не существует → модель скачивается с HuggingFace Hub ПРЯМО в local_path
+#      При следующем запуске папка уже есть → скачивания не будет
 #
-# Чтобы принудительно скачать с Hub (игнорируя локальную копию):
-#   установите force_hub: true
+# force_hub: true → принудительно скачать заново (например, для обновления весов)
+#
+# Где хранятся модели:
+#   Пути указаны относительно рабочей директории ноутбука.
+#   По умолчанию: <папка_ноутбука>/models/<имя_модели>/
+#   Чтобы изменить базовую папку — отредактируй local_path ниже.
 
 models:
   llm:
@@ -14,11 +19,11 @@ models:
     force_hub: false
 
   embedder:
-    local_path: "models/BAAI:bge-m3"
+    local_path: "models/BAAI_bge-m3"
     hub_id: "BAAI/bge-m3"
     force_hub: false
 
   reranker:
-    local_path: "models/bge-reranker-v2-m3"
+    local_path: "models/BAAI_bge-reranker-v2-m3"
     hub_id: "BAAI/bge-reranker-v2-m3"
     force_hub: false
