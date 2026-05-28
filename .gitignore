@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Audit Agent — локальные данные (не коммитить)
+models/          # веса моделей (гигабайты)
+documents/       # пользовательские документы
+chunks.json      # сгенерированная БД чанков
+index.faiss      # сгенерированный FAISS-индекс
+*.faiss
+*.pkl
